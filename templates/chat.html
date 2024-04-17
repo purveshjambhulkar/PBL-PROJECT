@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAVPAO.ai</title>
+    <link rel="stylesheet" href="../public/css/chat-style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    <div class="video-background">
+        <video autoplay muted loop id="video-bg">
+            <source src="../public/videos/14909668-hd_1920_1080_24fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="content">
+            <!-- navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light mb-3" data-bs-theme="dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="../public/images/navbar/ai (1).png" alt="Logo" width="40" height="40"
+                            class="d-inline align-text-top">
+                        <a href="" class="d-inline navbar-brand">PAVPAO.ai</a>
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+
+                            <a class="nav-link text-light" href="#">Home</a>
+                            <a class="nav-link text-light" href="#">New</a>
+
+
+                        </div>
+                    </div>
+
+                    <!-- Default dropstart button -->
+                    <div class="btn-group dropstart">
+                        <button type="button" class="btn btn-tranparent dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="../public/images/navbar/profile.png" alt="Logo" width="30" height="30"
+                                class="d-inline align-text-top">
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Sign up</a></li>
+                            <li><a class="dropdown-item" href="#">Log In</a></li>
+                            <li><a class="dropdown-item" href="#">Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- navbar-end -->
+
+
+            <div class="chat-container">
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Messages will be dynamically added here -->
+                </div>
+                <div class="input-container">
+                    <input type="text" class="input-field" id="user-input" placeholder="Type a message...">
+                    <button type="button" class="btn btn-outline-light send-button"
+                        onclick="sendMessage()">Send</button>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+<!-- 
+
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById("user-input").value;
+            var chatMessages = document.getElementById("chat-messages");
+
+            // Add user's message to chat
+            var userMessage = document.createElement("div");
+            userMessage.classList.add("message", "user-message");
+            userMessage.textContent = userInput;
+            chatMessages.appendChild(userMessage);
+
+            // Simulate bot response (replace this with actual bot response)
+            var botResponse = document.createElement("div");
+            botResponse.classList.add("message", "bot-message");
+            botResponse.textContent = "This is a bot response.";
+            chatMessages.appendChild(botResponse);
+
+            // Clear input field after sending message
+            document.getElementById("user-input").value = "";
+
+            // Scroll to bottom of chat messages
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>

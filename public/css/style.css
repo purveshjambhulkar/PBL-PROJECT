@@ -1,0 +1,39 @@
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    /* Adjust the height as needed */
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensure the video covers the entire container */
+}
+
+.overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    /* Example color for text */
+}
+
+
+ 
+/* logo */
+.black-to-white {
+    filter: invert(.7) contrast(500%);
+  }
+
+
