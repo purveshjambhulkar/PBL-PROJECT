@@ -11,7 +11,6 @@ from wtforms.validators import DataRequired, length, Email
 #     submit = SubmitField("Submit Post")
 
 
-# TODO: Create a RegisterForm to register new users
 class CreateUserRegistrationForm(FlaskForm):
     email = EmailField("Email", validators=[DataRequired(), Email()])
     username = StringField("Username", validators=[DataRequired(), length(max=20)])
@@ -19,11 +18,11 @@ class CreateUserRegistrationForm(FlaskForm):
     sign_in = SubmitField("Register")
 
 
-# TODO: Create a LoginForm to login existing users
 class CreateLoginForm(FlaskForm):
     email = EmailField("Email", validators=[DataRequired(), Email()])
     password = PasswordField("Password", validators=[DataRequired(), length(min=8, max=20)])
     login = SubmitField("Login")
+
 
 class SummarizeText(FlaskForm):
     text_field = StringField("StringField", validators=[DataRequired()])
