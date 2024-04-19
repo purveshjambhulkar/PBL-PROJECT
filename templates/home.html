@@ -4,10 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAVPAO.ai</title>
-    <link rel="stylesheet" href="../public/css/style.css">
+    <title>QUILL.ai</title>
+    <link rel="stylesheet" href="../static/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
 </head>
 
 
@@ -17,18 +21,20 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="../public/images/navbar/ai (1).png" alt="Logo" width="40" height="40"
+                <img src="../static/images/navbar/logo2.png" class="black-to-white" alt="Logo" width="60" height="60"
                     class="d-inline align-text-top">
 
                 <!-- note : if ur using black logo then add class="black-to-white" this to make them black-to-white -->
-
-                <a href="" class="d-inline navbar-brand">PAVPAO.ai</a>
+                <a href="{{ url_for('home') }}">
+                <button class="button" data-text="Awesome">
+                    <span class="actual-text">&nbsp;quill&nbsp;</span>
+                    <span aria-hidden="true" class="hover-text">&nbsp;quill&nbsp;</span>
+                </button></a>
             </a>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
 
-                    <a class="nav-link text-light" href="#">Home</a>
-                    <a class="nav-link text-light" href="#">New</a>
+                    <a class="nav-link text-light fw-bold" href="{{ url_for('summarize') }}">Summarize</a>
 
 
                 </div>
@@ -36,15 +42,37 @@
 
             <!-- Default dropstart button -->
             <div class="btn-group dropstart">
-                <button type="button" class="btn btn-tranparent dropdown-toggle" data-bs-toggle="dropdown"
+                <!-- <button type="button" class="btn btn-tranparent dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    <img src="../public/images/navbar/profile.png" alt="Logo" width="30" height="30"
+                    <img src="../static/images/navbar/profile.png" alt="Logo" width="30" height="30"
                         class="d-inline align-text-top">
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Sign up</a></li>
-                    <li><a class="dropdown-item" href="#">Log In</a></li>
-                    <li><a class="dropdown-item" href="#">Log Out</a></li>
+                </button> -->
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    {% if not current_user.is_authenticated %}
+                        <li class="nav-item">
+                          <a
+                            class="nav-link px-lg-3 py-3 py-lg-4 text-light"
+                            href="{{ url_for('login') }}"
+                            >Login</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            class="nav-link px-lg-3 py-3 py-lg-4 text-light"
+                            href="{{ url_for('register') }}"
+                            >Register</a
+                          >
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                          <a
+                            class="nav-link px-lg-3 py-3 py-lg-4 text-light"
+                            href="{{ url_for('logout') }}"
+                            >Log Out</a
+                          >
+                        </li>
+                    {% endif %}
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4 text-light" href="{{ url_for('profiles') }}">Team Profiles</a></li>
                 </ul>
             </div>
         </div>
@@ -54,7 +82,7 @@
 
 
     <!-- carousel-start -->
-    <div id="carouselExampleCaptions" class="carousel slide position-relative" data-bs-ride="carousel"
+    <div id="carouselExampleCaptions" class="carousel slide position-relative aabi" data-bs-ride="carousel"
         data-bs-pause="false">
 
 
@@ -70,7 +98,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="2500">
-                <img src="../public/images/carousel/c4.jpg" class="d-block w-100" height="581px" alt="...">
+                <img src="../static/images/carousel/c4.jpg" class="d-block w-100 aabi" height="581px" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>"Engage with AI that responds like a human"</h5>
                     <p>Experience natural and fluid conversations with our AI, making interactions feel more human-like
@@ -78,7 +106,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="2500">
-                <img src="../public/images/carousel/c2.jpg" class="d-block w-100" height="581px" alt="...">
+                <img src="../static/images/carousel/c2.jpg" class="d-block w-100 aabi" height="581px" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>"Integrate AI seamlessly into your workflows"</h5>
                     <p>Effortlessly integrate our AI into your existing systems and workflows, enhancing productivity
@@ -86,7 +114,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="2500">
-                <img src="../public/images/carousel/c3.jpg" class="d-block w-100" height="581px" alt="...">
+                <img src="../static/images/carousel/c3.jpg" class="d-block w-100 aabi" height="581px" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>"Elevated coding with AI-driven suggestions"</h5>
                     <p>Get real-time suggestions and auto-completion while coding, helping you write cleaner and more
@@ -94,7 +122,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="2500">
-                <img src="../public/images/carousel/c1.jpg" class="d-block w-100" height="581px" alt="...">
+                <img src="../static/images/carousel/c1.jpg" class="d-block w-100 aabi" height="581px" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>"Swift Summarization: Condense Texts in a Snap"</h5>
                     <p>QCondense long documents into brief summaries for efficient review of research papers and news
@@ -114,13 +142,11 @@
         </button>
     </div>
 
-    <div>
-        <span> .</span>
-    </div>
+    
 
 
     <div class="justify-content-center">
-        <video src="../public/videos/ai.mp4" autoplay muted loop class="w-100" height="100%"></video>
+        <video src="../static/videos/ai(2).mp4" autoplay muted loop class="w-100" height="100%"></video>
     </div>
 
 
@@ -130,94 +156,58 @@
     <div class="text-center m-0">
         <div class="video-container">
             <video autoplay muted loop>
-                <source src="../public/videos/main.mp4" type="video/mp4">
+                <source src="../static/videos/main.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="overlay-content">
-                <div class="row">
-                    <div class="col">
-                        <div class="card border-2  border-secondary bg-transparent text-light mb-3"
-                            style="max-width: 18rem;">
-                            <div class="card-header">#Blog 1</div>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Lorem ipsum dolor sit amet.
-                                </h5>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, rem!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card border-2 border-primary bg-transparent text-light mb-3"
-                            style="max-width: 18rem;">
-                            <div class="card-header">#Blog 2</div>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Lorem ipsum dolor sit amet.
-                                </h5>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, rem!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card border-2 border-success bg-transparent text-light mb-3"
-                            style="max-width: 18rem;">
-                            <div class="card-header">#Blog 3</div>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Lorem ipsum dolor sit amet.
-                                </h5>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, rem!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="accordion text-light bg-transparent m-4" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item text-light bg-transparent">
+                        <h2 class="accordion-header text-light bg-transparent">
+                            <button class="accordion-button text-light bg-transparent" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne"
+                                aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                How Chat AI Works
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                            <div class="accordion-body text-light bg-transparent">
 
-                <div class="row">
-                    <div class="col">
-                        <div class="card border-2 border-danger bg-transparent text-light mb-3"
-                            style="max-width: 18rem;">
-                            <div class="card-header">#Blog 4</div>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Lorem ipsum dolor sit amet.
-                                </h5>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, rem!
-                                </p>
+                                The chat AI utilizes advanced algorithms to understand user queries and provide relevant
+                                responses. It analyzes natural language input and generates appropriate answers based on
+                                context and predefined rules, ensuring accurate and contextually relevant interactions.
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card border-2 border-info bg-transparent text-light mb-3" style="max-width: 18rem;">
-                            <div class="card-header">#Blog 5</div>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Lorem ipsum dolor sit amet.
-                                </h5>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, rem!
-                                </p>
+                    <div class="accordion-item text-light bg-transparent">
+                        <h2 class="accordion-header text-light bg-transparent">
+                            <button class="accordion-button collapsed text-light bg-transparent" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo"
+                                aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                Summarization in a Snap
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                            <div class="accordion-body text-light bg-transparent">
+                                Our chat AI includes a powerful text summarization feature that condenses
+                                lengthy documents or articles into concise summaries. Whether you're reviewing
+                                research papers, news articles, or meeting notes, this feature helps you extract the
+                                most important information, saving you time and effort.
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card border-2 border-light bg-transparent text-light mb-3"
-                            style="max-width: 18rem;">
-                            <div class="card-header">#Blog 6</div>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Lorem ipsum dolor sit amet.
-                                </h5>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, rem!
-                                </p>
+                    <div class="accordion-item text-light bg-transparent">
+                        <h2 class="accordion-header text-light bg-transparent">
+                            <button class="accordion-button collapsed text-light bg-transparent" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree"
+                                aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                Benefits of Chat AI
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                Chat AI provides round-the-clock customer support and instant responses, enhancing user
+                                satisfaction. It offers scalability for businesses of all sizes and personalization
+                                based on user preferences.
                             </div>
                         </div>
                     </div>
@@ -225,9 +215,6 @@
             </div>
         </div>
     </div>
-
-
-
 
 
     <div class="footer">
@@ -236,14 +223,16 @@
             <div class="justify-content-center row">
                 <div class="col">
 
-                    <div class="card text-bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header">About Us</div>
+                    <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+                        <div class="card-header fw-bold">About Us</div>
                         <div class="card-body">
-                            <h5 class="card-title">
-                                BLOG WEBSITE
+                            <h5 class="card-title text-decoration-underline">
+                                QUILL.ai
                             </h5>
                             <p class="card-text">
-                                POST YOUR BLOGS NOW !!
+                                Welcome to QUILL.ai, where we're revolutionizing human-AI interaction
+                                with innovative solutions. Our mission: personalized chatbots for engaging user
+                                experiences, powered by cutting-edge AI technology.
                             </p>
                         </div>
                     </div>
@@ -252,93 +241,99 @@
                 <div class="col text-light">
                     <div class="row">
                         <div class="col">
-                            <h6>About us</h6>
+                            <h7>Address</h7>
+                            <p class="low-light-text">123 AI Lane, Chatville, CA, 98765, India</p>
+                            <div class="col">
+                                <h7>Contact us :</h7>
+                                <ul class="low-light-text">
+                                    <li>info@QUILL.ai</li>
+                                    <li>123-456-7890</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="col">
-                            <h6>Contact us</h6>
-                            <ul>
-                                <li>purveshjambhulka16@gmail.com</li>
-                                <li>+91 - 9284566391</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row">
+                        <div class="row">
 
-                        <h6>Social links</h6>
-                        <div class="col">
-                            <a href="" class="text-decoration-none">
-                                <img src="../public/images/footer/insta.png" alt="insta" height="40px" width="40px">
-                            </a>
-                            <a href="" class="text-decoration-none">
-                                <img src="../public/images/footer/github.png" alt="github" height="40px" width="40px">
-                            </a>
-                            <a href="" class="text-decoration-none">
-                                <img src="../public/images/footer/linkedin.png" alt="linkedin" height="40px"
-                                    width="40px">
-                            </a>
+                            <h6>Social links</h6>
+                            <div class="col">
+                                <a href="" class="text-decoration-none">
+                                    <img src="../static/images/footer/insta.png" alt="insta" height="40px" width="40px">
+                                </a>
+                                <a href="" class="text-decoration-none">
+                                    <img src="../static/images/footer/github.png" alt="github" height="40px"
+                                        width="40px">
+                                </a>
+                                <a href="" class="text-decoration-none">
+                                    <img src="../static/images/footer/linkedin.png" alt="linkedin" height="40px"
+                                        width="40px">
+                                </a>
+                            </div>
+                            <div class="col">
+                                <span class="badge p-2 text-bg-dark"><a href="{{ url_for('profiles') }}" class="text-decoration-none text-light">Team
+                                        Profiles</a></span>
+                            </div>
+
                         </div>
 
                     </div>
 
                 </div>
 
+
             </div>
 
 
+            <!-- Copyright -->
+            <div class="text-center text-light bg-black">
+                © 2024 Copyright:
+                <a class="text-reset fw-bold" href="{{ url_for('home') }}">QUILL.ai</a>
+            </div>
+            <!-- Copyright -->
+
         </div>
 
 
-        <!-- Copyright -->
-        <div class="text-center text-light bg-black">
-            © 2024 Copyright:
-            <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Purvesh Jambhulkar</a>
-        </div>
-        <!-- Copyright -->
-
-    </div>
 
 
 
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var carousel = document.getElementById('carouselExampleCaptions');
+                var carouselInstance = new bootstrap.Carousel(carousel);
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var carousel = document.getElementById('carouselExampleCaptions');
-            var carouselInstance = new bootstrap.Carousel(carousel);
+                var carouselInner = carousel.querySelector('.carousel-inner');
 
-            var carouselInner = carousel.querySelector('.carousel-inner');
+                var isMouseDown = false;
 
-            var isMouseDown = false;
-
-            carouselInner.addEventListener('mousedown', function () {
-                isMouseDown = true;
-                carouselInstance.pause();
-            });
-
-            carouselInner.addEventListener('mouseup', function () {
-                isMouseDown = false;
-                carouselInstance.cycle();
-            });
-
-            carouselInner.addEventListener('mouseleave', function () {
-                isMouseDown = false;
-                carouselInstance.cycle();
-            });
-
-            carouselInner.addEventListener('mousemove', function () {
-                if (isMouseDown) {
+                carouselInner.addEventListener('mousedown', function () {
+                    isMouseDown = true;
                     carouselInstance.pause();
-                }
+                });
+
+                carouselInner.addEventListener('mouseup', function () {
+                    isMouseDown = false;
+                    carouselInstance.cycle();
+                });
+
+                carouselInner.addEventListener('mouseleave', function () {
+                    isMouseDown = false;
+                    carouselInstance.cycle();
+                });
+
+                carouselInner.addEventListener('mousemove', function () {
+                    if (isMouseDown) {
+                        carouselInstance.pause();
+                    }
+                });
             });
-        });
-    </script>
+        </script>
 
 
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
 
 
 </body>

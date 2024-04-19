@@ -1,0 +1,200 @@
+*::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.chat-container {
+    width: 400px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.chat-messages {
+    height: 364px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+.message {
+    background-color: #e0e0e0;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.user-message {
+    background-color: #d6eaf8;
+    text-align: right;
+}
+
+.bot-message {
+    text-align: left;
+}
+
+.input-container {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.input-field {
+    width: calc(100% - 70px);
+    padding: 8px;
+    border: none;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-right: 10px;
+}
+
+.send-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+    background-color: #ebf0f5;
+    color: black;
+}
+
+.flash{
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+}
+
+.send {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #7e97b8;
+    background-color: #e0e8ef;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: rgba(255, 255, 255, 0.333);
+    border-radius: 40px 40px 40px 40px;
+    padding: 16px 24px 16px 28px;
+    transform: translate(0px, 0px) rotate(0deg);
+    transition: 0.2s;
+    box-shadow: -4px -2px 16px 0px #ffffff, 4px 2px 16px 0px rgb(95 157 231 / 48%);
+    margin-top: 30px;
+    margin-left: 100px;
+    }
+    
+.send:hover {
+    color: #516d91;
+    background-color: #E5EDF5;
+    box-shadow: -2px -1px 8px 0px #ffffff, 2px 1px 8px 0px rgb(95 157 231 / 48%);
+}
+    
+.send:active {
+    box-shadow: none;
+}
+/* 
+.summ{
+    background-color: black;
+    border-radius: 10px;
+    width: 40vw;
+}
+
+.sum-back{
+    border: 2px solid whitesmoke;
+    position: absolute;
+    left: 30px;
+} */
+
+/* css for logo name */
+/* === removing default button style ===*/
+.button {
+    margin: 0;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.black-to-white {
+    filter: invert(.7) contrast(500%);
+  }
+
+/* button styling */
+.button {
+    --border-right: 6px;
+    --text-stroke-color: rgba(255, 255, 255, 0.6);
+    --animation-color: #07fffb;
+    --fs-size: 1.3em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial";
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+/* this is the text, when you hover on button */
+.hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.3s;
+    -webkit-text-stroke: 1px var(--animation-color);
+}
+
+/* hover */
+.button:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 12px var(--animation-color))
+}
+    

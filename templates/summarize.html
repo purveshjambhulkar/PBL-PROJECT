@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quill.ai</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .chat-container {
+            width: 400px;
+            margin: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        .message {
+            background-color: #e0e0e0;
+            padding: 8px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+        .user-message {
+            background-color: #d6eaf8;
+            text-align: right;
+        }
+        .bot-message {
+            text-align: left;
+        }
+        .input-container {
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+        .input-field {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 3px;
+        }
+        .send-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .send-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-messages" id="chat-messages">
+            <!-- Messages will be dynamically added here -->
+        </div>
+        <div class="input-container">
+            <input type="text" class="input-field" id="user-input" placeholder="Type a message...">
+            <button class="send-button" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById("user-input").value;
+            var chatMessages = document.getElementById("chat-messages");
+
+            // Add user's message to chat
+            var userMessage = document.createElement("div");
+            userMessage.classList.add("message", "user-message");
+            userMessage.textContent = userInput;
+            chatMessages.appendChild(userMessage);
+
+            // Simulate bot response (replace this with actual bot response)
+            var botResponse = document.createElement("div");
+            botResponse.classList.add("message", "bot-message");
+            botResponse.textContent = "This is a bot response.";
+            chatMessages.appendChild(botResponse);
+
+            // Clear input field after sending message
+            document.getElementById("user-input").value = "";
+
+            // Scroll to bottom of chat messages
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
+</body>
+</html>
