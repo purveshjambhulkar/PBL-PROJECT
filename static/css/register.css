@@ -1,0 +1,70 @@
+body{
+    background-image:url('../images/navbar/login-bg.jpg');
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav{
+    background-color: #04101f;
+}
+.hold{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background-color: #17252e00;  /* Adjust background color for form */
+    border-radius: 5px;
+    width: 40vw;
+    color: #fff;  /* Text color for form elements */
+    margin-top: 20vh;
+    margin-left: 35vw;
+}
+
+.black-to-white {
+    filter: invert(.7) contrast(500%);
+  }
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.text{
+    font-size: 25px;
+    font-weight: 700;
+    display: block;
+    padding: 5px 0px;
+}
+
+.input-field {
+    width: 30vw; /* Adjust width as needed */
+    padding: 12px 20px; /* Adjust padding for better user experience */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    font-size: 16px; /* Adjust font size for readability */
+    color: #fff; /* Text color to contrast with dark background */
+    background-color: #202c37; /* Input field background color */
+    transition: all 0.2s ease-in-out; /* Add smooth transition on focus */
+    margin-bottom: 20px;
+  }
+  
+  /* .input-field:focus {
+    outline: 2px solid #3498db;
+    background-color: #232e37;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  } */
+
+  .sign-in{
+    border: 2px solid #e0d1a0;
+    padding: 5px 10px;
+    width: 130px;
+    border-radius: 20px;
+    margin-left: 10vw;
+  }
+
+.input-field:-webkit-autofill {
+    background-color: #747584;
+}
