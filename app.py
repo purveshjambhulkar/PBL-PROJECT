@@ -18,7 +18,7 @@ import os
 
 # Import your forms from the forms.py
 from forms import CreateUserRegistrationForm, CreateLoginForm, SummarizeText
-from transformers import pipeline
+# from transformers import pipeline
 
 
 app = Flask(__name__)
@@ -37,7 +37,7 @@ db.init_app(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+# summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -124,10 +124,10 @@ def summarize():
         form = SummarizeText()
         if request.method == "POST":
             text = request.form.get("prompt")
-            print(text)
-            summary = summarizer(text, max_length=300, min_length=30, do_sample=False)[0]["summary_text"]
-            print(summary)
-            flash(summary, "success")
+            # print(text)
+            # summary = summarizer(text, max_length=300, min_length=30, do_sample=False)[0]["summary_text"]
+            # print(summary)
+            # flash(summary, "success")
             return redirect(url_for('summarize'))
         return render_template("chat.html", form=form)
     else:
